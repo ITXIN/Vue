@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+<div  class="test1">
+  <p>{{ title }}</p>
+<p>{{ ok }}</p>
+</div>
+
+<script>
+new Vue({
+  el:'.test',
+  data: {
+    message: 'Hello Vue.jdfdfs!',
+  }
+})
+var i = new Vue({
+  el:'.test1',
+  data: {
+    title:'kkkk',
+    ok:'kkkk',
+  }
+})
+</script>
+</body>
+</html>
