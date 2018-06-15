@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)  v-bind 指令被用来响应地更新 HTML 属性 </title>
+</head>
+<style>
+.bgclass{
+  background: yellow;
+  color: red;
+}
+</style>
+<body>
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+
+<div id="app">
+  <label for="r1">修改颜色</label>
+	<input type="checkbox" v-model="isbgclass" id="r1">
+  <br><br>
+	<p>{{isbgclass}}</p>
+  <div v-bind:class="{'bgclass': isbgclass}">
+    directiva v-bind:class
+  </div>
+</div>
+
+<script>
+new Vue({
+	el: '#app',
+  data:{
+  	isbgclass: false
+  }
+});
+</script>
+</body>
+</html>

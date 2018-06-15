@@ -4,11 +4,18 @@
 <meta charset="utf-8">
 <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
 <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+<style media="screen">
+  .bgcolor{
+    background-color: red;
+  }
+</style>
+
 </head>
 <body>
-<div  class="test1">
-  <p>{{ title }}</p>
-<p>{{ ok }}</p>
+<div  class="test">
+  <p>{{ message }}</p>
+ <p>{{ message }}</p>
+ <p v-html="html"> </p>
 </div>
 
 <script>
@@ -16,6 +23,7 @@ new Vue({
   el:'.test',
   data: {
     message: 'Hello Vue.jdfdfs!',
+    html: '<h1 class=\'bgcolor\'>菜鸟教程</h1>',
   }
 })
 var i = new Vue({
