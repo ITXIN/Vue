@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js">
+
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <form class="" action="index.html" method="post">
+        <div class="error" v-show="!message">
+          you must enter a message to submit.
+        </div>
+        <textarea name="name" rows="8" cols="80" v-model='message'></textarea>
+        <button type="button" name="button">send message</button>
+
+      </form>
+      <pre>{{$data | json}}</pre>
+    </div>
+    <script type="text/javascript">
+    new Vue ({
+      el:'#app',
+      data:{
+        message:''
+      }
+    });
+    </script>
+  </body>
+</html>
