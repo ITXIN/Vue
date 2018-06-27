@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>单个复选框</p>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{checked}}</label>
+
+        <p>多个复选框</p>
+        <input type="checkbox" id="runoob" value="1Runoob" v-model="checkedNames">
+        <label for="runoob">Runoob</label>
+        <input type="checkbox" id="google" value="2Google" v-model="checkedNames">
+        <label for="google">Google</label>
+        <input type="checkbox" id="taobao" value="3Taobao" v-model="checkedNames">
+        <label for="taobao">taobao</label>
+        <br>
+        <span>选择多值为{{checkedNames}}</span>
+
+        <br>
+        <input type="radio" id="runoob" value="Runoob" v-model="picked">
+        <label for="runoob"> Runoob</label>
+       
+        <input type="radio" id="google" value="Google" v-model="picked">
+        <label for="google"> Google</label>
+        <br>
+        <span>选中值为：{{picked}}</span>
+
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                checked:false,
+                checkedNames:[],
+                picked:'Runoob'
+            }
+        })
+    </script>
+
+</body>
+</html>
