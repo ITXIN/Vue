@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on:test</title>
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="counter += 1">
+            增加1
+        </button>
+        <p>这个按钮点击了{{counter}}次</p>
+        <button v-on:click="greet">
+            greet
+        </button>
+        <button v-on:click="say('hi!')">
+            say hi
+        </button>
+    </div>
+    <script>
+      var app = new Vue({
+            el:'#app',
+            data:{
+                counter:0,
+                name:'Vue.js'
+            },
+            methods:{
+                greet:function (event) {
+                    alert('hello'+this.name+'!')
+                    if (event){
+                        alert(event.target.tagName)
+                    }
+                },
+                say:function (message) {
+                    alert(message)
+                }
+            }
+        })
+        // app.greet()
+    </script>
+
+</body>
+</html>
