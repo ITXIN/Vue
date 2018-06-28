@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--<runoob>-->
+
+        <!--</runoob>-->
+        <!--<child message="hello!"></child>-->
+        <!--<div>-->
+            <!--<input v-model="parentMsg">-->
+            <!--<br>-->
+            <!--<child v-bind:message="parentMsg"></child>-->
+        <!--</div>-->
+        <ol>
+            <todo-item v-for="item in sites" v-bind:todo="item">
+
+            </todo-item>
+        </ol>
+    </div>
+    <script>
+        //全局组件
+        // Vue.component('runoob',{
+        //     template:'<h1> 自定义全局组件</h1>'
+        // })
+        // new Vue({
+        //     el:'#app'
+        // })
+        //局部组件
+        // var Child = {
+        //     template:'<h1> 自定义局部组件</h1>'
+        // }
+        // new Vue({
+        //     el:'#app',
+        //     components:{
+        //         'runoob':Child
+        //     }
+        // })
+
+        //Prop
+        // Vue.component('child',{
+        //     props:['message'],
+        //     template:'<span>{{message}}</span>'
+        // })
+        //
+        // new Vue({
+        //     el:'#app',
+        //     data:{
+        //         parentMsg:'父组件内容'
+        //     }
+        // })
+        Vue.component('todo-item',{
+            props:['todo'],
+            template:'<li>{{todo.text}}</li>'
+        })
+        new Vue({
+            el:'#app',
+            data:{
+                sites:[
+                    {text:'Runoob'},
+                    {text:'Google'},
+                    {text:'Taobao'},
+                ]
+            }
+        })
+    </script>
+
+</body>
+</html>
