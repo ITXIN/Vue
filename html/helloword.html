@@ -3,7 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
-<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script> -->
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
 <style media="screen">
   .bgcolor{
     background-color: red;
@@ -11,27 +16,141 @@
 </style>
 </head>
 <body>
-<div  class="test">
+  <div  class="test">
+    <p>{{ message }}</p>
   <p>{{ message }}</p>
- <p>{{ message }}</p>
- <p v-html="html"> </p>
-</div>
+  <p v-html="html"> </p>
+  </div>
+  <div id="app-4">
+    <ol>
+      <li v-for="todo in todos">
+        {{ todo.key }}
+      </li>
+    </ol>
+  </div>
 
+  <div id="app-6">
+      <p>message:{{ message }}</p>
+      <p>message1:{{ message1 }}</p>
+      <input v-model="message">
+      <input v-model="message1 message">
+  </div>
+
+  <div id="app-7">
+      <ol>
+        <!--
+          现在我们为每个 todo-item 提供 todo 对象
+          todo 对象是变量，即其内容可以是动态的。
+          我们也需要为每个组件提供一个“key”，稍后再
+          作详细解释。
+        -->
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item.text"
+          >
+        </todo-item>
+      </ol>
+    </div>
+
+    <div id="example">
+        <p>Original message: "{{ message }}"</p>
+        <p>Computed reversed message: "{{ reversedMessage }}"</p>
+      </div>
+
+      <div id="demo">{{ fullName }}</div>
 <script>
-new Vue({
-  el:'.test',
+  var vm = new Vue({
+  el: '#demo',
   data: {
-    message: 'Hello Vue.jdfdfs!',
-    html: '<h1 class=\'bgcolor\'>菜鸟教程</h1>',
+    firstName: 'Foo',
+    lastName: 'Bar'
+  },
+  computed: {
+    // fullName: function () {
+    //   return this.firstName + ' ' + this.lastName
+    // }
+    fullName:{
+      getter:function(){
+        return this.firstName + ' '+ this.lastName
+      },
+      set:function(newValue){
+        var names = newValue.split(' ')
+        this.firstName = names[0]
+        this.lastName = names[names.length - 1]
+      }
+    }
   }
 })
-var i = new Vue({
-  el:'.test1',
+
+  var vm = new Vue({
+  el: '#example',
   data: {
-    title:'kkkk',
-    ok:'kkkk',
+    message: 'Hello'
+  },
+  computed: {
+      // 计算属性的 getter
+      reversedMessage: function () {
+        // `this` 指向 vm 实例
+        return this.message.split('').reverse().join('')
+      }
+    },
+    methods:{
+      reversedMessage:function(){
+        return this.message.split('').reverse().join('')
+      }
+    }
+  })
+
+  Vue.component('todo-item', {
+    props: ['todo'],
+    template: '<li>{{ todo }}</li>'
+  })
+
+  var app7 = new Vue({
+    el: '#app-7',
+    data: {
+      groceryList: [
+        { id: 0, text: '蔬菜' },
+        { id: 1, text: '奶酪' },
+        { id: 2, text: '随便其它什么人吃的东西' }
+      ]
+    }
+  })
+  var app6 = new Vue({
+  el: '#app-6',
+  data: {
+    message: 'Hello Vue!',
+    message1:'1'
   }
 })
+
+
+  new Vue({
+    el:"#app-4",
+    data:{
+      todos:[
+        {key:'11'},
+        {key:'12'},
+        {key:'13'},
+      ]
+    }
+  })
+
+
+  new Vue({
+    el:'.test',
+    data: {
+      message: 'Hello Vue.jdfdfs!dfsfdsfdsdfs',
+      html: '<h1 class=\'bgcolor\'>菜鸟教程</h1>',
+    }
+  })
+  var i = new Vue({
+    el:'.test1',
+    data: {
+      title:'kkkk',
+      ok:'kkkk',
+    }
+  })
 </script>
 </body>
 </html>

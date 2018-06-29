@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
     <title>过度</title>
     <style>
         .fade-enter-active, .fade-leave-active{
@@ -19,7 +20,9 @@
 <body>
     <div id="databinding">
         <button v-on:click="show = !show">点我</button>
-        <transition name="fade">
+        <transition name="custom-classes-transition"
+        enter-active-class="animated tada"
+        leave-active-class="animated bounceOutRight">
             <p v-show="show" v-bind:style="styleobj">动画实例</p>
         </transition>
     </div>
