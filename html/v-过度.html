@@ -14,7 +14,41 @@
         .fade-enter, .fade-leave-to{
             opacity: 0
         }
+        /*
         
+    UILabel *testLab = ({
+        UILabel *label = [[UILabel alloc]init];
+        [self.view addSubview:label];
+        label.textColor = UIColor.cyanColor;
+        label.font = [UIFont systemFontOfSize:14.0];
+        label;
+    });
+    
+//    testLab.frame = CGRectMake(100,100, 100, 30);
+    [testLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(100);
+        make.centerX.equalTo(self.view);
+    }];
+//
+    
+    NSMutableAttributedString *attrStr =   [[NSMutableAttributedString alloc] initWithString:@"肯定是疯了似的疯狂"];
+    [attrStr addAttribute:NSForegroundColorAttributeName
+                    value:[UIColor redColor]
+                    range:NSMakeRange(4, 3)];
+    [attrStr addAttribute:NSFontAttributeName
+                    value:[UIFont systemFontOfSize:16]
+                    range:NSMakeRange(4, 3)];
+    
+    testLab.attributedText = attrStr;
+    
+    
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+
+    [attrStr enumerateAttributesInRange:NSMakeRange(0, attrStr.string.length) options:NSAttributedStringEnumerationReverse usingBlock:^(NSDictionary<NSAttributedStringKey,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
+        NSLog(@"---l-%@--%@",attrStr,NSStringFromRange(range));
+    }];
+    
+        */
     </style>
 </head>
 <body>
