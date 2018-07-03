@@ -4,8 +4,94 @@
     <meta charset="UTF-8">
     <title>组件</title>
     <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <script src="../vue/vue.js"></script>
 </head>
 <body>
+
+    <div id="components-button-demo">
+        <button-counter></button-counter>
+    </div>
+    <script>
+        new Vue({
+            el:"#components-button-demo",
+        })
+    </script>
+
+    <div id="props">
+        <!-- <blog-post title="My journey with Vue" subtitle="subtitle"></blog-post>
+        <blog-post title="Blogging with Vue" subtitle="subtitle"></blog-post>
+        <blog-post title="Why Vue is so fun" subtitle="subtitle"></blog-post> -->
+        <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:id="post.id" v-bind:title="post.title" v-bind:subtitle="post.subtitle"></blog-post>  
+    </div>
+    <script>
+        new Vue({
+            el:'#props',
+            data:{
+                posts:[
+                { id: 1, title: 'My journey with Vue' ,subtitle:'sub1'},
+                { id: 2, title: 'Blogging with Vue' ,subtitle:"sub1"},
+                { id: "3", title: 'Why Vue is so fun' ,subtitle:"sub1"} 
+                ]
+            }
+        })
+    </script>
+
+    <!-- 优化上面的代码，当绑定多值较多时需要注意的地方。 -->
+    <div id="blogpost">
+        <post-blog v-for="post in posts" v-bind:key="post.id" v-bind:post="post" ></post-blog>  
+    </div>
+    <script>
+        new Vue({
+            el:'#blogpost',
+            data:{
+                posts:[
+                { 
+                id: 1, title: 'My journey with Vue' ,subtitle:'sub1',content:'<h1>button</h1>'},
+                // { id: 2, title: 'Blogging with Vue' ,subtitle:"sub1"},
+                // { id: "3", title: 'Why Vue is so fun' ,subtitle:"sub1"} 
+                ]
+            }
+        })
+    </script>
+
+    
+    <div v-bind:style="{fontSize:postFontSize+'em'}" id="emit-id">
+        <emit-post v-for="post in posts" v-bind:post="post" v-on:enlarge-text="postFontSize += 0.5">
+        </emit-post>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#emit-id",
+            data:{
+                posts:[
+                {id: 1, title: 'My journey with Vue' ,subtitle:'sub1'},
+                {id: 1, title: 'My journey with Vue' ,subtitle:'sub1'},
+                ],
+                postFontSize:"1.5"
+            }
+        })
+    </script>
+
+    <div id="custominput"> 
+        <custom-input v-model="searchText">
+            
+        </custom-input>
+    </div>
+
+    <div id="alert">
+        <alert-box>
+            something bad happened.
+        </alert-box>
+    </div>
+    <script>
+        new Vue({
+            el:'#alert'
+        })
+    </script>
+
+
+
     <div id="app">
         <!--<runoob>-->
 
@@ -22,6 +108,7 @@
             </todo-item>
         </ol>
     </div>
+    
     <script>
         //全局组件
         // Vue.component('runoob',{
@@ -66,6 +153,34 @@
                     {text:'Taobao'},
                 ]
             }
+        })
+    </script>
+
+
+    <script>
+        var ComponentA = {
+
+        }
+        var ComponentC = {
+
+}
+        var ComponentB = {
+            components:{
+                'component-a':ComponentA,
+                'component-c':ComponentC,
+            }
+        }
+        
+    
+    </script>
+    <div id="modeltest">
+        <base-checkbox v-model="lovingVue">
+
+        </base-checkbox>
+    </div>
+    <script>
+        new Vue({
+            el:'#modeltest'
         })
     </script>
 
