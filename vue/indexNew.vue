@@ -13,7 +13,6 @@
            </div>
 
            <div class="modal-footer vertical">
-
                            <a class="confirm text-orange" @click="_onCard">我要办卡</a>
 
           <a class="confirm text-orange" @click="_onBindCard">立即绑定</a>
@@ -118,7 +117,7 @@ export default {
     _onCard () {
 
       this.showValue = false
-
+//Vuex是专门为Vue应用程序提供的状态管理模式，每个Vuex应用的核心是store（仓库），即装载应用程序state（状态）的容器，每个应用通常只拥有一个store实例。
       this.$store.commit('updateShowConfirm', false)
 
       if (this.isBackTop) {
