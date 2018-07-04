@@ -1,8 +1,8 @@
 <template>
     <div>
-        <ComponentB :p-child1="child1" :p-child1="child2" :p-child1="child3">
+        <!-- <ComponentB :p-child1="child1" :p-child1="child2" :p-child1="child3">
 
-        </ComponentB>
+        </ComponentB> -->
     </div>
 </template>
 <script>

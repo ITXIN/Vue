@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div v-color="colorStatus">注册指令</div>
+    </div>
+    <script >
+        // document.addEventListener('DOMContentLoaded',function(){
+            // 注册全局指令—所有人都可以用
+            Vue.directive('color',function(el,binding){
+                console.log(el);
+                console.log(binding);
+                el.style.backgroundColor = 'green';
+                el.style.fontSize = '4em';
+            })
+            var vm = new Vue({
+                el:'.app',
+                data:{
+                    colorStatus:true
+                },
+                //注册局部指令
+                // directives:{
+                // 'color':function(el,binding){
+                //     el.style.backgroundColor = 'red';
+                //     }
+                // }
+            })
+        // },false); 
+       
+        
+
+
+    </script>
+    
+</body>
+</html>
