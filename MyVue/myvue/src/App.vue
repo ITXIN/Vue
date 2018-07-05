@@ -1,14 +1,73 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    ![](./assets/logo.png)
-    <router-view/> <!--  这里是用来展示路由页面内容的，如果想用跳转就用<router-link to='xxx'></router-link> -->
+    <!-- 这里是用来展示路由页面内容的，如果想用跳转就用<router-link to='xxx'></router-link> -->
+    <!-- 是HelloWorld.vue的内容 -->
+    <router-view/>  
+
+
+    <!-- <h1>App.vue</h1>
+    <p>{{message}}</p>
+    <input type="text" v-model="message" />
+    <ul>
+      <li v-for="person in people" style="margin:10px">
+        name:{{ person.name }},age:{{person.age}},sex:{{person.sex}}
+      </li>
+    </ul> -->
+
+      <h1>商品展示</h1> 
+      <div v-for="(good, index) in dataArr" :key="index" style="margin:10px,">
+        <div style="float:left">
+          <img :src="good.img" width="100px" height="100px">
+          <p style="background:white;margin:10px">价格:{{ good.price }},商品名:{{good.title}},编号:000{{index}}</p>
+      </div>
+     </div>
+     
+    <!-- <div v-for="(good, index) in dataArr" :key="index" style="margin:10px,">
+      <GoodsList >
+    </GoodsList>   
+    </div> -->
+  
+  
   </div>
+  
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  created() {
+    this.$http.get('/api/goods').then((data) => {
+      if(data.body.code == 0){
+        this.dataArr = data.body.data;
+        console.log(this.dataArr)
+      }
+    })
+  },
+  data(){
+    return{
+      message:"app.message",
+      dataArr:[],
+      people: [{
+                    name: 'Jack',
+                    age: 30,
+                    sex: 'Male'
+                }, {
+                    name: 'Bill',
+                    age: 26,
+                    sex: 'Male'
+                }, {
+                    name: 'Tracy',
+                    age: 22,
+                    sex: 'Female'
+                }, {
+                    name: 'Chris',
+                    age: 36,
+                    sex: 'Male'
+                }],
+     
+    }
+  }
 }
 </script>
 
