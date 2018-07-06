@@ -2,20 +2,19 @@
     <li class="goods-list">
         <router-link to="/detail" class="goods-list-link">
             <div class="goods-list-pic">
-                <img :src="img" alt="">
+                <img :src="good.img" alt="">
             </div>
             <div class="goods-list-desc">
-                <p class="goods-list-name">{{title}}</p>
-                <p class="goods-list-price">{{price|dTofixed|dCurrency}}</p>
+                <p class="goods-list-name">{{good.title}}</p>
+                <p class="goods-list-price">{{good.price|dTofixed|dCurrency}}</p>
             </div>
         </router-link>
-    </li>
+     </li>
 </template>
 
 <script>
     export default{
-        props:['price','title','img'],
-        
+        props:['good'],
     }
 </script>
 
@@ -61,7 +60,8 @@
     clear: both;
   }
   .goods-list-name,.goods-list-price {
-    width: 50%;
+    width: 45%;
+    text-align: right;
     height: 1.2rem;
     line-height: 1.2rem;
     font-size: 0.8rem;
@@ -70,9 +70,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding: 0 10px 0 10px;
   }
   .goods-list-price {
     color: #ff8000;
     float: right;
+    text-align: left;
+    padding: 0 10px 0 10px;
   }
 </style>

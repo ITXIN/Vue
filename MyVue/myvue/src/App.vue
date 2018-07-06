@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!-- <img src="./assets/logo.png"> -->
     <!-- 这里是用来展示路由页面内容的，如果想用跳转就用<router-link to='xxx'></router-link> -->
     <!-- 是HelloWorld.vue的内容 -->
-    <router-view/>  
-
+    <!-- <router-view/>   -->
 
     <!-- <h1>App.vue</h1>
     <p>{{message}}</p>
@@ -14,26 +13,23 @@
         name:{{ person.name }},age:{{person.age}},sex:{{person.sex}}
       </li>
     </ul> -->
-
-      <h1>商品展示</h1> 
+      <!-- <h1>商品展示</h1> 
       <div v-for="(good, index) in dataArr" :key="index" style="margin:10px,">
         <div style="float:left">
           <img :src="good.img" width="100px" height="100px">
           <p style="background:white;margin:10px">价格:{{ good.price }},商品名:{{good.title}},编号:000{{index}}</p>
       </div>
-     </div>
+     </div> -->
      
-    <!-- <div v-for="(good, index) in dataArr" :key="index" style="margin:10px,">
-      <GoodsList >
-    </GoodsList>   
-    </div> -->
-  
-  
+
+    <GoodsList  v-for="(good, index) in dataArr" :key="index" v-bind:good="good" >
+    </GoodsList> 
   </div>
   
 </template>
 
 <script>
+import GoodsList from '@/components/GoodsList'
 export default {
   name: 'App',
   created() {
@@ -43,6 +39,9 @@ export default {
         console.log(this.dataArr)
       }
     })
+  },
+  components:{
+            GoodsList
   },
   data(){
     return{
