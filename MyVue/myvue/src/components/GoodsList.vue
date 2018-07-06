@@ -1,6 +1,6 @@
 <template>
     <li class="goods-list">
-        <router-link to="/detail" class="goods-list-link">
+        <router-link to="{name:'GoodsDetail',params:{title:'10'}}" class="goods-list-link">
             <div class="goods-list-pic">
                 <img :src="good.img" alt="">
             </div>
@@ -10,11 +10,19 @@
             </div>
         </router-link>
      </li>
+     <!-- {path:'GoodsDetail',query:{title:good.title}} -->
 </template>
 
 <script>
     export default{
         props:['good'],
+        // methods: {
+        // goBack () {
+        //     window.history.length > 1
+        //         ? this.$router.go(-1)
+        //         : this.$router.push('/')
+        //     }
+        // },
     }
 </script>
 

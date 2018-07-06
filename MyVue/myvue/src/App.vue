@@ -22,8 +22,13 @@
      </div> -->
      
 
-    <GoodsList  v-for="(good, index) in dataArr" :key="index" v-bind:good="good" >
+    <GoodsList v-for="(good, index) in dataArr" :key="index" v-bind:good="good" >
     </GoodsList> 
+
+    <router-link to="/HelloWorld"> HelloWord</router-link>
+    <!-- <router-link to="/GoodsList"> GoodsList</router-link> -->
+    <router-view></router-view>
+
   </div>
   
 </template>
@@ -41,8 +46,15 @@ export default {
     })
   },
   components:{
-            GoodsList
+      GoodsList
   },
+  //  methods: {
+  //   goBack () {
+  //       window.history.length > 1
+  //           ? this.$router.go(-1)
+  //           : this.$router.push('/')
+  //       }
+  //   },
   data(){
     return{
       message:"app.message",
