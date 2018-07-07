@@ -14,9 +14,12 @@ export default new Router({
       component: HelloWorld
     },
     { 
-      path: '/GoodsDetail/:title',
-      name:"GoodsDetail",
+      // path:'/list',//query
+      // path: '/list/:id',//params
+      path:"",
+      name:"list",
       component: GoodsDetail 
     }
-  ]
+  ],
+  
 })

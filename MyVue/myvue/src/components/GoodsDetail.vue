@@ -1,6 +1,6 @@
 <template>
   <div class="goods-detail">
-    <h1>GoodsDetail.vue{{$route.params.title}}</h1>
+    <h1>GoodsDetail.vue ,query id:{{this.$route.query.id}},params id:{{this.$route.params.id}}</h1>
     <p>{{message}}</p>
     <input type="text" v-model="message" />
     <ul>
@@ -41,6 +41,7 @@ export default {
                     age: 36,
                     sex: 'Male'
                 }],
+        // id:this.$route.params.id
      
     }
   }

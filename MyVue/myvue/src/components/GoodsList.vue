@@ -1,21 +1,49 @@
 <template>
     <li class="goods-list">
-        <router-link to="{name:'GoodsDetail',params:{title:'10'}}" class="goods-list-link">
-            <div class="goods-list-pic">
-                <img :src="good.img" alt="">
+                <!-- params、query是什么？
+        params：/router1/:id ，/router1/123，/router1/789 ,这里的id叫做params
+        query：/router1?id=123 ,/router1?id=456 ,这里的id叫做query。 -->
+
+         <!-- 只能传固定值 { 
+      path: '/list',
+      name:"list",
+      component: GoodsDetail 
+    } 接收{{$route.query.id}}-->
+        <!-- <router-link to="/list?id=title" >测试</router-link> -->
+
+        <!-- { 
+        path: '/list/:id',
+        name:"list",
+        component: GoodsDetail 
+        } 
+        {{$route.params.id}}
+        -->
+        <!-- <router-link :to="{name:'list',params:{id:good.title}}">测试</router-link> -->
+        
+
+        <!-- <router-link  class="goods-list-link" :to="{name:'list',params:{id:good.title}}">
+            <div class="goods-list-pic" >
+                <img :src="good.img" alt="" >
             </div>
-            <div class="goods-list-desc">
+            <div class="goods-list-desc" >
                 <p class="goods-list-name">{{good.title}}</p>
                 <p class="goods-list-price">{{good.price|dTofixed|dCurrency}}</p>
             </div>
-        </router-link>
+        </router-link> -->
+
+        <input type="button" v-on:click="handlePush" value="button" />
      </li>
-     <!-- {path:'GoodsDetail',query:{title:good.title}} -->
+
 </template>
 
 <script>
     export default{
         props:['good'],
+        data(){
+            return{
+                title:good.title
+            }
+        },
         // methods: {
         // goBack () {
         //     window.history.length > 1
@@ -23,6 +51,12 @@
         //         : this.$router.push('/')
         //     }
         // },
+        methods:{
+            handlePush:function(){
+               this.$route.push({id:'233'});//类似get传参，通过URL传递参数 
+            //    alert('test');
+            }
+        }
     }
 </script>
 
