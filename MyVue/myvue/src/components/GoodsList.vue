@@ -31,7 +31,7 @@
             </div>
         </router-link> -->
 
-        <input type="button" v-on:click="handlePush" value="button" />
+        <input type="button" v-on:click="handlePush(good.title)" value="button" />
      </li>
 
 </template>
@@ -41,7 +41,7 @@
         props:['good'],
         data(){
             return{
-                title:good.title
+                // title:good.title
             }
         },
         // methods: {
@@ -52,9 +52,9 @@
         //     }
         // },
         methods:{
-            handlePush:function(){
-               this.$route.push({id:'233'});//类似get传参，通过URL传递参数 
-            //    alert('test');
+            handlePush:function(title){
+            this.$router.push('/');
+            this.$router.push({name:'list',params: {id:title}});
             }
         }
     }

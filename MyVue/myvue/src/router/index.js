@@ -16,7 +16,7 @@ export default new Router({
     { 
       // path:'/list',//query
       // path: '/list/:id',//params
-      path:"",
+      path:"/list",
       name:"list",
       component: GoodsDetail 
     }
