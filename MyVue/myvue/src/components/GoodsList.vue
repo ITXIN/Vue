@@ -30,8 +30,9 @@
                 <p class="goods-list-price">{{good.price|dTofixed|dCurrency}}</p>
             </div>
         </router-link> -->
-
-        <input type="button" v-on:click="handlePush(good.title)" value="button" />
+        
+        <!-- 动态显示标题 -->
+        <input type="button" v-on:click="handlePush(good.title)" v-bind:value="good.title"/>
      </li>
 
 </template>
