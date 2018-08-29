@@ -29,3 +29,30 @@
 // }).$mount('#app')
 
 // // 现在，应用已经启动了！
+
+import Vue from 'vue'
+import Router from 'vue-router'
+
+Vue.use(Router)
+
+const Foo = { template: '<div>hi foo</div>' }
+const Bar = { template: '<div>hi bar</div>' }
+
+
+const router = new Router({
+    routes: [
+      {
+        path: '/Foo',
+        name: 'Foo',
+        component: Foo
+      },
+      {
+        path:"/Bar",
+        name:"Bar",
+        component: Bar 
+      }
+    ],
+    
+  });
+
+  export {router}
