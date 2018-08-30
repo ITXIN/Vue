@@ -23,13 +23,50 @@
     <div v-bind:class="{'bgclass': isbgclass}">
       directiva v-bind:class
     </div>
+
+
+    <ol>
+      <todo-item v-for="item in keysarr">
+        {{item}}
+      </todo-item>
+    </ol>
+
+    <button v-on:click="definePropertyTest()">
+      definePropertyTest
+  </button>
+
+
   </div>
 
   <script>
     new Vue({
       el: '#app',
       data: {
-        isbgclass: false
+        isbgclass: false,
+        keysarr: Object.keys({ 'key1': '1key1', 'key2': '2key2' })
+      },
+      methods: {
+        definePropertyTest: function () {
+          let requestConfig = {
+            credentials: 'include',
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            mode: "cors",
+            cache: "force-cache"
+          }
+
+          // alert('kkk');
+          Object.defineProperty(requestConfig, 'body', {
+            value: JSON.stringify({ 'key1': '1key1', 'key2': '2key2' })
+          })
+
+
+          alert(requestConfig.headers.Accept);
+        }
+
       }
     });
   </script>
