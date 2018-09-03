@@ -17,7 +17,7 @@ const router = new VueRouter({
 	routes,
 	mode: routerMode,
 	strict: process.env.NODE_ENV !== 'production',
-	scrollBehavior (to, from, savedPosition) {
+	scrollBehavior (to, from, savedPosition) {//返回希望滚动到哪个的位置
 	    if (savedPosition) {
 		    return savedPosition
 		} else {

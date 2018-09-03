@@ -8,7 +8,7 @@ import {
 } from './mutation-types.js'
 
 export default {
-
+//TODO:不理解这种写法。
 	async getUserInfo({
 		commit,
 		state
