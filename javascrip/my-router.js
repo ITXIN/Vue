@@ -32,27 +32,68 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
+import VueRouter from 'vue-router';
 
 Vue.use(Router)
 
 const Foo = { template: '<div>hi foo</div>' }
 const Bar = { template: '<div>hi bar</div>' }
 
-
 const router = new Router({
     routes: [
       {
-        path: '/Foo',
+        path: '/foo',
         name: 'Foo',
         component: Foo
       },
       {
-        path:"/Bar",
+        path:"/bar",
         name:"Bar",
         component: Bar 
+      },{
+        path:'/',
+        redirect:'/foo'
       }
     ],
     
   });
 
   export {router}
+
+// var Foo = Vue.extend({
+//   template:'<div>hi foo</div>',
+//   data:function(){
+//     return {
+//       msg:'foo rounter'
+//     }
+//   }
+// })
+
+// var Bar = Vue.extend({
+//   template:'<div>hi Bar</div>',
+//   data:function(){
+//     return {
+//       msg:'Bar rounter'
+//     }
+//   }
+// })
+
+// var router = new VueRouter()
+
+// router.map({
+//   '/foo':{
+//     component:Foo
+//   },
+//   '/bar':{
+//     component:Bar
+//   }
+// })
+
+// router.redirect({
+//   '/':'/foo'
+// })
+
+// var APP = Vue.extend({})
+// router.start(App,'#app')
+
+// export {router}
