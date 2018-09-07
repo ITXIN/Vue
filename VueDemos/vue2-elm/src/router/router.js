@@ -50,9 +50,6 @@ const questionDetail = r => require.ensure([], () => r(require('../page/service/
 const find = r => require.ensure([], () => r(require('../page/find/find')), 'find')
 const download = r => require.ensure([], () => r(require('../page/download/download')), 'download')
 
-
-
-
 export default [{
     path: '/',
     component: App, //顶层路由，对应index.html
