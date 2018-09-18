@@ -13,7 +13,10 @@
     <router-view></router-view>
 
  
-<alert-tip :alertText="alertText"> </alert-tip>  
+    <alert-tip :alertText="alertText"> </alert-tip>  
+
+     <compute-time  :time=""></compute-time>
+
   </div>
   
 </template>
@@ -23,6 +26,8 @@ import GoodsList from "@/components/GoodsList";
 
 import alertTip from "@/components/common/alertTip";
 import GoodsDetail from "@/components/GoodsDetail";
+
+import computeTime from "@/components/common/computeTime";
 
 export default {
   name: "App",
@@ -37,7 +42,8 @@ export default {
   },
   components: {
     GoodsList,
-    alertTip
+    alertTip,
+    computeTime
   },
   methods: {
     goBack() {

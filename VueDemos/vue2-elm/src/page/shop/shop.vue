@@ -1393,7 +1393,7 @@
                                 display: flex;
                                 align-items: center;
                                 .time_spent_desc{
-                                    @include sc(.55rem, #666)
+                                    @include sc(.55rem, #666);
                                     margin-left: .15rem;
                                 }
                             }
