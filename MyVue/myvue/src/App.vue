@@ -1,33 +1,33 @@
+
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <br>
+    <!-- <img src="./assets/logo.png">
+    <br> -->
     <!-- 这里是用来展示路由页面内容的，如果想用跳转就用<router-link to='xxx'></router-link> -->
     <!-- 是HelloWorld.vue的内容 -->
     <!-- <router-view/>   -->
 
-    <GoodsList v-for="(good, index) in dataArr" :key="index" v-bind:good="good" >
-    </GoodsList>  -->
+    <!-- <GoodsList v-for="(good, index) in dataArr" :key="index" v-bind:good="good" >
+    </GoodsList>  
 
     <router-link to="/HelloWorld"> HelloWord</router-link>
-    <router-view></router-view>
+    <router-view></router-view> 
 
  
-    <alert-tip :alertText="alertText"> </alert-tip>  
+     <alert-tip :alertText="alertText"> </alert-tip>  
 
-     <compute-time  :time=""></compute-time>
-
+     <compute-time  :timer="890" ></compute-time> -->
+    <home></home>
   </div>
   
 </template>
 
 <script>
 import GoodsList from "@/components/GoodsList";
-
 import alertTip from "@/components/common/alertTip";
 import GoodsDetail from "@/components/GoodsDetail";
-
 import computeTime from "@/components/common/computeTime";
+import home from "@/page/home/home";
 
 export default {
   name: "App",
@@ -41,9 +41,10 @@ export default {
     });
   },
   components: {
-    GoodsList,
-    alertTip,
-    computeTime
+    // GoodsList,
+    // alertTip,
+    // computeTime,
+    home
   },
   methods: {
     goBack() {
@@ -71,3 +72,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+
