@@ -33,6 +33,11 @@ const router = new VueRouter({
 // 之后要手动挂载上。new Vue时，el和$mount并没有本质上的不同。
 new Vue({
 	router,
-	store,
+	
+	/* 把 store 对象提供给 “store” 选项，这可以把 store 的实例注入所有的子组件
+	通过在根实例中注册 store 选项，该 store 实例会注入到根组件下的所有子组件中，
+	且子组件能通过 this.$store 
+	*/
+	store, 
 }).$mount('#app')
 
