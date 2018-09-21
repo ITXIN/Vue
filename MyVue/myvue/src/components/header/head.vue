@@ -34,26 +34,26 @@
             }
         },
         mounted() {
-            // this.getUserInfo();
+            this.getUserInfo();
         },
         props:['signinUp','headTitle','goBack'],
         computed:{
-            // ...mapState([
-            //     'userInfo'
-            // ]),
+            ...mapState([
+                'userInfo'
+            ]),
         },
         methods:{
-            // ...mapActions([
-            //     'getUserInfo'
-            // ]),
+            ...mapActions([
+                'getUserInfo'
+            ]),
         },
     }
 </script>
 
 <style  scoped>
-    /* // @import "../../style/mixin"; */
+     /* @import "../../style/mixin"; */
     #head_top {
-        background-color: blue;
+        background-color: #3190e8;
         position: fixed;
         z-index: 100;
         left: 0;
@@ -63,7 +63,7 @@
         /* // @include wh(100%,1.95rem); */
     }
     .head_goback{
-        left: 0.4rem;
+        left: 0.1rem;
         /* // @include wh(0.6rem,1rem); */
         line-height: 2.2rem;
         margin-left: .4rem;
@@ -72,8 +72,11 @@
     }
     .head_login{
         right: 0.55rem;
-        /* // @include sc(0.65rem,#fff);
-        // @include ct; */
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+         /* @include sc(0.65rem,#fff);
+         @include ct; */
        
     }
      .login_span{
