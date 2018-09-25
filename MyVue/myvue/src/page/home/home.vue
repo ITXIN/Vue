@@ -63,7 +63,7 @@ export default {
     .city_nav{
         padding-top: 2.35rem;
         border-top: 1px solid $bc;
-        background-color: #fff;
+        background-color: rgb(248, 19, 19);
         margin-bottom: 0.4rem;
         .city_tip{
             @include fj;

@@ -91,9 +91,9 @@ export default async (url = '', data = {}, type = 'GET', method = 'fetch') => {
 						if (typeof obj !== 'object') {
 							obj = JSON.parse(obj);
 						}
-						resolve(obj)
+						resolve(obj);
 					} else {
-						reject(requestObj)
+						reject(requestObj);
 					}
 				}
 			}

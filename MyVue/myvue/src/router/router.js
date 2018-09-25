@@ -1,13 +1,12 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'/* 英文Hello.vue模版，并赋值给变量Hello,这里是“@”相当于“../” */
-import GoodsList from '@/components/GoodsList'
-import GoodsDetail from '@/components/GoodsDetail'
+// import Vue from 'vue'
+// import Router from 'vue-router'
+// import HelloWorld from '@/components/HelloWorld'/* 英文Hello.vue模版，并赋值给变量Hello,这里是“@”相当于“../” */
+// import GoodsList from '@/components/GoodsList'
+// import GoodsDetail from '@/components/GoodsDetail'
 import App from '../App'
 
-import Home from '../page/home/home'
 const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
-Vue.use(Router)
+
 
 export default [{
   path: '/',
