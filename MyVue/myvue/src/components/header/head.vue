@@ -56,8 +56,8 @@ export default {
 
 #head_top {
   background-color: $blue;
-  position: fixed;
-  z-index: 100;
+  position: fixed;//生成绝对定位的元素，相对于浏览器窗口进行定位。可以通过设置 "left", "top", "right" 以及 "bottom" 属性给目标元素定位。
+  z-index: 100;//调节层级
   left: 0;
   top: 0;
   @include wh(100%, 1.95rem);

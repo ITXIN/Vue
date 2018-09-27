@@ -25,8 +25,22 @@
             </ul>
         </section>
 
+        <section class="group_city_container">
+            <ul class="letter_classify">
+                <li v-for="(value,key,index) in sortgroupcity" :key="key" class="letter_classify_li">
+                    <h4 class="city_title">{{key}}
+                        <span v-if="index == 0">（字母排序）</span>
+                    </h4>
+                    <ul class="groupcity_name_container citylistul clear">
+                        <router-link  tag="li" v-for="item in value" :to="'/city/' + item.id" :key="item.id" class="ellipsis">
+                            {{item.name}}
+                        </router-link>
+                    </ul>
+                </li>
+            </ul>
+        </section>
 
-        
+
     </div>
 </template>
 
@@ -54,10 +68,25 @@ export default {
     //获取热门城市
     hotcity().then(res=>{
         this.hotcity = res;
-        console.log('热门城市：',res)
+        console.log('热门城市：',res);
     })
 
-
+    groupcity().then(res=>{
+        this.groupcity = res;
+        console.log('所有城市：',res);
+    })
+  },
+  computed:{
+      //将获取的数据按照A-Z字母排序
+      sortgroupcity(){
+          let sortobj = {};
+          for (let index = 65; index <= 90; index++) {
+              if(this.groupcity[String.fromCharCode(index)]){
+                  sortobj[String.fromCharCode(index)] = this.groupcity[String.fromCharCode(index)];
+              } 
+          }
+          return sortobj;
+      }
   },
   components: {
     headTop
@@ -84,7 +113,7 @@ export default {
 .city_nav {
   padding-top: 2.35rem;
   border-top: 1px solid $bc;
-  background-color: rgb(248, 248, 248);
+  background-color: rgb(255, 255, 255);
   margin-bottom: 0.4rem;
   .city_tip {
     @include fj;
@@ -136,7 +165,7 @@ export default {
 .city_title {
   color: #666;
   font-weight: 400;
-  text-indent: 0.45rem;
+  text-indent: 0.45rem;//缩进
   border-top: 2px solid $bc;
   border-bottom: 1px solid $bc;
   @include font(0.55rem, 1.45rem, "Helvetica Neue");

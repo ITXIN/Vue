@@ -24,7 +24,7 @@
                 </router-link>  
             </ul>
         </section>
-       <!--  <section class="group_city_container">
+        <section class="group_city_container">
             <ul class="letter_classify">
                 <li v-for="(value, key, index) in sortgroupcity" :key="key"  class="letter_classify_li">
                     <h4 class="city_title">{{key}}
@@ -37,7 +37,7 @@
                     </ul>
                 </li>
             </ul>
-        </section> -->
+        </section>
         
     </div>
 </template>
