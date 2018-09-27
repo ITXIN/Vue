@@ -1,27 +1,26 @@
-// import Vue from 'vue'
-// import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'/* 英文Hello.vue模版，并赋值给变量Hello,这里是“@”相当于“../” */
-// import GoodsList from '@/components/GoodsList'
-// import GoodsDetail from '@/components/GoodsDetail'
+
 import App from '../App'
 
 const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
 
-
 export default [{
   path: '/',
-  component: App,
-  children: [
-    {
-      path: '',
-      redirect: '/home'
-    },
-    {
-      path: '/home',
-      redirect: home
-    },
+  component: App, //顶层路由，对应index.html
+  // 嵌套路由就是路由里面嵌套他的子路由，可以有自己的路由导航和路由容器（router-link、router-view），通过配置children可实现多层嵌套
+  children: [ //二级路由。对应App.vue
+      //地址为空时跳转home页面
+      {
+          path: '',
+          redirect: '/home'
+      },
+      //首页城市列表页
+      {
+          path: '/home',
+          component: home
+      },
   ]
 }]
+
 
 // export default new Router({
 //   routes: [
