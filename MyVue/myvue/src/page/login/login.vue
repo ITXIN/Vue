@@ -16,7 +16,7 @@
           </section>
         </form>
 
-        <form class="loginForm">
+        <form class="loginForm" v-else>
             <section class="input_container">
                 <input type="text" placeholder="账号" v-model.lazy="userAccount">
             </section>
@@ -25,7 +25,7 @@
                 <input  v-if="!showPassword" type="password" placeholder="密码" v-model="passWord">
                 <input  v-else type="text" placeholder="密码" v-model="passWord">
                 <div class="button_switch" :class="{change_to_text:showPassword}">
-                  <div class="circle_button" :class="{change_to_right:showPassword}" @click="changePassWordType"></div>
+                  <div class="circle_button" :class="{trans_to_right:showPassword}" @click="changePassWordType"></div>
                   <span>abc</span>
                   <span>...</span>
                 </div>
@@ -131,8 +131,9 @@ export default {
             clearInterval(this.timer);
           }
         }, 1000);
-        //判断用户是否存在
+        //判断用户是否存在 这个接口有问题。
         let exsis = await checkExsis(this.phoneNumber, "mobile");
+        console.log("checkExsis",exsis);
         if (exsis.message) {
           this.showAlert = true;
           this.alertText = exsis.message;
@@ -160,7 +161,7 @@ export default {
           return;
         } else if (!/^\d{6}$/gi.test(this.mobileCode)) {
           this.showAlert = true;
-          this.alertText = "手机号不正确";
+          this.alertText = "短信验证码不正确";
           return;
         }
         //手机号登录
