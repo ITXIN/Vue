@@ -1,7 +1,7 @@
 <template>
     <div class="loginContainer">
         <head-top :head-title="loginWay? '登录':'密码登录'" goBack="true">
-            <div slot="changeLogin" class="change_login" @click="changeLoginWay">{{loginWay? "密码登录":"短信登录"}}</div>
+            <!-- <div slot="changeLogin" class="change_login" @click="changeLoginWay">{{loginWay? "密码登录":"短信登录"}}</div> -->
         </head-top>
         <form class="loginForm" v-if="loginWay">
             <section class="input_container phone_number">
@@ -47,7 +47,6 @@
         <router-link to="/forget" class="to_forget" v-if="!loginWay">重置密码？</router-link>
         <alert-tip v-if="showAlert" :showHide="showAlert" @closeTip="closeTip" :alertText="alertText"></alert-tip>
     </div>
-
 </template>
 
 <script>
@@ -76,7 +75,6 @@
             }
         },
         created(){
-             console.log("created ");
             this.getCaptchaCode();
         },
         components: {
@@ -105,7 +103,6 @@
             async getCaptchaCode(){
                 let res = await getcaptchas();
                 this.captchaCodeImg = res.code;
-                console.log("getCaptchaCode ",res);
             },
             //获取短信验证码
             async getVerifyCode(){

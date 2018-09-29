@@ -60,7 +60,7 @@ export default async (url = '', data = {}, type = 'GET', method = 'fetch') => {
 		try {
 			const response = await fetch(url, requestConfig);
 			const responseJson = await response.json();
-			console.log('返回数据2',responseJson);
+			console.log('返回数据成功1');
 			return responseJson
 		} catch (error) {
 			throw new Error(error)
@@ -93,7 +93,7 @@ export default async (url = '', data = {}, type = 'GET', method = 'fetch') => {
 						if (typeof obj !== 'object') {
 							obj = JSON.parse(obj);
 						}
-						console.log('返回数据2',obj);
+						console.log('返回数据成功2');
 						resolve(obj);
 					} else {
 						reject(requestObj);

@@ -5,6 +5,8 @@ const home = r => require.ensure([], () => r(require('../page/home/home')), 'hom
 const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
 const forget = r => require.ensure([], () => r(require('../page/forget/forget')), 'forget')
 const city = r => require.ensure([], () => r(require('../page/city/city')), 'city')
+const msite = r => require.ensure([], () => r(require('../page/msite/msite')), 'msite')
+
 
 export default [{
     path: '/',
@@ -36,6 +38,13 @@ export default [{
             path: '/city/:cityid',
             component: city
         },
+        //所有商铺列表
+        {
+            path: '/msite',
+            component: msite,
+            meta:{keepAlive:true},
+        },
+
     ]
 }]
 

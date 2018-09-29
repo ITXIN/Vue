@@ -27,7 +27,7 @@
 		    </div>
 		    <img src="../../images/fl.svg" class="fl_back animation_opactiy" v-else>
     	</nav>
-    	<div class="shop_list_container">
+    	<!-- <div class="shop_list_container">
 	    	<header class="shop_header">
 	    		<svg class="shop_icon">
 	    			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shop"></use>
@@ -35,7 +35,7 @@
 	    		<span class="shop_header_title">附近商家</span>
 	    	</header>
 	    	<shop-list v-if="hasGetData" :geohash="geohash"></shop-list>
-    	</div>
+    	</div> -->
     	<foot-guide></foot-guide>
     </div>    
 </template>
