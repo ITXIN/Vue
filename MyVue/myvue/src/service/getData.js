@@ -72,3 +72,18 @@ export const getcaptchas = () => fetch('/v1/captchas',{},"POST");
 export const sendLogin = (code,moble,validate_token) => fetch('/v1/login/app_mobile',{
     code,moble,validate_token
 },"POST");
+
+
+//重置密码
+
+/**
+ * 修改密码
+ */
+
+ export const changePassword = (username,oldpassword,newpassword,confirmpassword,captcha_code) => fetch('/v2/changepassword',{
+     username,
+     oldpassword,
+     newpassword,
+     confirmpassword,
+     captcha_code,
+ },"POST");
