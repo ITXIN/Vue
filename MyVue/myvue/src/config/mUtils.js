@@ -15,3 +15,10 @@ export const getStore = name => {
     }
     return window.localStorage.getItem(name);
 }
+
+export const removeStore = name =>{
+    if (!name) {
+        return;
+    }
+    window.localStorage.removeItem(name);
+}
