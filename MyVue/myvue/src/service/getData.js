@@ -146,3 +146,21 @@ export const sendLogin = (code,moble,validate_token) => fetch('/v1/login/app_mob
     };
     return fetch('/shopping/restaurants',data);
   };
+
+  /**
+   * 获取search页面结果
+   */
+  export const searchRestaurant = (geohash,keyword) =>fetch('/v4/restaurants',{
+      'extras[]':'restaurant_activity',
+      geohash,
+      keyword,
+      type:'search'
+  })
+
+  /**
+   * 获取订单列表
+   */
+  export const getOrderList = (user_id,offset) => fetch('/bos/v2/users/'+user_id+'/orders',{
+      limit:10,
+      offset,
+  })

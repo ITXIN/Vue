@@ -124,7 +124,7 @@ export const getStyle = (element, attr, NumberMode = 'int') => {
 
      const moveEnd = () =>{
          requestFram = requestAnimationFrame(()=>{
-             if (document.body.scrollTop != oldScroolTop) {
+             if (document.body.scrollTop != oldScrollTop) {
                  oldScrollTop = document.body.scrollTop;
                  moveEnd();
              }else{

@@ -6,6 +6,9 @@ const login = r => require.ensure([], () => r(require('../page/login/login')), '
 const forget = r => require.ensure([], () => r(require('../page/forget/forget')), 'forget')
 const city = r => require.ensure([], () => r(require('../page/city/city')), 'city')
 const msite = r => require.ensure([], () => r(require('../page/msite/msite')), 'msite')
+const search = r => require.ensure([], () => r(require('../page/search/search')), 'search')
+
+const order = r => require.ensure([], () => r(require('../page/order/order')), 'order')
 
 
 export default [{
@@ -44,6 +47,21 @@ export default [{
             component: msite,
             meta:{keepAlive:true},
         },
+        //搜索页面
+        {
+            path: '/search/:geohash',
+            component: search,
+        },
+        //订单列表
+        {
+            path: '/order',
+            component: order,
+            // children:[{
+            //     path:'orderDetail',
+            //     component:orderDetail,
+            // }]
+        },
+
 
     ]
 }]
