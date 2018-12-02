@@ -40,6 +40,11 @@ export default {
   },
   props: ["signinUp", "headTitle", "goBack"],
   computed: {
+    /**
+    mapState通过扩展运算符将store.state.userInfo 映射this.userInfo  这个this 很重要，
+    这个映射直接映射到当前Vue的this对象上。
+    所以通过this都能将这些对象点出来，同理，mapActions, mapMutations都是一样的道理。
+   */
     ...mapState(["userInfo"])
   },
   methods: {

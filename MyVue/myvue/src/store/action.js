@@ -15,7 +15,7 @@ import {
          state 
       }){
           let res = await getUser();
-          console.log('getUser',res);
+          console.log('getUser--',res);
           commit(GET_USERINFO,res);
       }
 
